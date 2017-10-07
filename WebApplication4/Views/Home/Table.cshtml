@@ -1,0 +1,71 @@
+@
+@{
+    ViewData["Title"] = "Table";
+}
+
+<h2>Table Service</h2>
+
+<table>
+    @foreach (var item in Model.service)
+    {
+        <tr>
+            <td>
+                @item.ID
+            </td>
+            <td>
+                @item.name
+            </td>
+            <td>
+                @item.description
+            </td>
+            <td>
+                @item.value
+            </td>
+            @*<td>
+                @item.ID
+            </td>*@
+        </tr>
+    }
+</table>
+
+<h2>Table Visitors</h2>
+
+<table>
+    @foreach (var item in Model.visitors)
+    {
+        <tr>
+            <td>
+                @item.ID
+            </td>
+            <td>
+                @item.PhoneNumber
+            </td>
+            <td>
+                @item.Discount
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Table Visits</h2>
+
+<table>
+    @foreach (var item in Model.visitors)
+    {
+        <tr>
+            <td>
+                @item.ID
+            </td>
+            <td>
+                @item.Visitor.ID
+            </td>
+            <td>
+                @item.Date
+            </td>
+
+            <td>
+                @item.Master
+            </td>
+        </tr>
+    }
+</table>

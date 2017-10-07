@@ -1,0 +1,39 @@
+@model IEnumerable<WebApplication4.Models.Visits>
+
+@{
+    ViewData["Title"] = "VisitsTable";
+}
+
+<h2>VisitsTable</h2>
+
+<p>
+    <a asp-action="CreateVisit">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Master)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Master)
+            </td>
+            <td>
+                <a asp-action="DeleteVisit" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

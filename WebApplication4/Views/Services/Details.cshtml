@@ -1,0 +1,66 @@
+@model WebApplication4.Models.TableViewModel.DetailsServiceViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    @{ 
+        int dec;
+        int inc;
+
+
+        if (Model.idList.First() == Model.ID)
+        {
+            dec = Model.idList.Last();
+        }
+        else { dec = Model.idList[Model.idList.IndexOf(Model.ID) -    1]; }
+
+
+        if (Model.idList.Last() == Model.ID)
+        {
+            inc = Model.idList.First();
+        }
+        else { inc = Model.idList[Model.idList.IndexOf(Model.ID) + 1]; }
+
+    }
+    <a asp-action="Details" asp-route-id="@inc">up</a>
+    <a asp-action="Details" asp-route-id="@dec">down</a>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.value)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.value)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Photo)
+        </dt>
+        <dd>
+            @if (Model.Photo != null)
+            {
+                <img style="width:100px; height:100px; " src="data:image/jpg;base64,@(Convert.ToBase64String(Model.Photo))" />
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
