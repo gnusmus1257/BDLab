@@ -10958,11 +10958,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Inna\\documents\\visual studio 2017\\Projects\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
+      "projectUniqueName": "C:\\Users\\Inna\\Documents\\Visual Studio 2017\\Projects\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
       "projectName": "WebApplication4",
-      "projectPath": "C:\\Users\\Inna\\documents\\visual studio 2017\\Projects\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
+      "projectPath": "C:\\Users\\Inna\\Documents\\Visual Studio 2017\\Projects\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
       "packagesPath": "C:\\Users\\Inna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Inna\\documents\\visual studio 2017\\Projects\\WebApplication4\\WebApplication4\\obj\\",
+      "outputPath": "C:\\Users\\Inna\\Documents\\Visual Studio 2017\\Projects\\WebApplication4\\WebApplication4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Inna\\AppData\\Roaming\\NuGet\\NuGet.Config",

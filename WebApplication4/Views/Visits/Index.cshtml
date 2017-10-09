@@ -24,7 +24,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Master)
                 </th>
-            <th></th>
+            <th>
+                Totals
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +43,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Master)
+            </td>
+            <td>
+                @{ 
+                    double total =item.Service.value- (item.Service.value * item.Visitor.Discount / 100);
+                }
+                @total
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

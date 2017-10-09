@@ -25,7 +25,22 @@ namespace WebApplication4.Controllers
         // GET: Services
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Service.ToListAsync());
+            List<Service> temp = await _context.Service.OrderBy(x => x.value).ToListAsync();
+
+            return View(temp);
+        }
+        public async Task<ActionResult> IndexSorted(int MinValue, int MaxValue)
+        {
+            List<Service> temp = await _context.Service.OrderBy(x => x.value).ToListAsync();
+            List<Service> list = new List<Service>();
+            foreach (var item in temp)
+            {
+                if (item.value > MinValue && item.value < MaxValue)
+                {
+                    list.Add(item);
+                }
+            }
+            return View("Index", list);
         }
 
         // GET: Services/Details/5
@@ -50,6 +65,30 @@ namespace WebApplication4.Controllers
             var temp = new DetailsServiceViewModel()
             {
                 ID=service.ID,
+                description = service.description,
+                name = service.name,
+                value = service.value,
+                Photo = service.Photo,
+                idList = list
+            };
+            return View(temp);
+        }
+
+        public ActionResult Search (string name)
+        {
+            var service = _context.Service.FirstOrDefault(x => x.name == name);
+            if (service==null)
+            {
+                return View("SearchEror");
+            }
+            List<int> list = new List<int>();
+            foreach (var item in _context.Service)
+            {
+                list.Add(item.ID);
+            }
+            var temp = new DetailsServiceViewModel()
+            {
+                ID = service.ID,
                 description = service.description,
                 name = service.name,
                 value = service.value,
