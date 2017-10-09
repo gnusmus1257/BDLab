@@ -16,6 +16,7 @@ namespace WebApplication4.Models
         public string description { get; set; }
         public int value { get; set; }
         public byte[] Photo { get; set; }
+        public int Count { get; set; }
     }
 
     public class Visitors

@@ -76,12 +76,15 @@ namespace WebApplication4.Controllers
         {
             if (ModelState.IsValid)
             {
+                var Service = _context.Service.First(x => x.name == visits.Service);
+                Service.Count++;
+                _context.Update(Service);
                 var temp = new Visits()
                 {
                     Date = visits.Date,
                     Visitor = _context.Visitor.First(x => x.FIO == visits.Visitor),
                     Master = visits.Master,
-                    Service = _context.Service.First(x => x.name == visits.Service)
+                    Service=Service
                 };
                 _context.Add(temp);
                 await _context.SaveChangesAsync();
