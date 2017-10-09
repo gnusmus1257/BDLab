@@ -12,5 +12,6 @@ namespace WebApplication4.Models.TableViewModel
         public int PhoneNumber { get; set; }
         public int Discount { get; set; }
         public List<int> idList { get; set; }
+        public int CountVisit { get; set; }
     }
 }

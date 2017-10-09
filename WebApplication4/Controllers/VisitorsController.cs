@@ -56,6 +56,51 @@ namespace WebApplication4.Controllers
             return View(temp);
         }
 
+
+        public ActionResult GetCountVisits (int id)
+        {
+            var visitor = _context.Visitor.FirstOrDefault(x => x.ID == id);
+            if (visitor==null||visitor.ID!=id)
+            {
+                return NotFound();
+            }
+            var countVisit = GetCountVisit(_context.Visit.ToList(), visitor);
+            if (countVisit==0)
+            {
+                visitor.Discount = 1;
+                _context.Update(visitor);
+                _context.SaveChanges();
+            }
+            List<int> list = new List<int>();
+            foreach (var item in _context.Visitor)
+            {
+                list.Add(item.ID);
+            }
+            var temp = new DetailVisitorViewModel()
+            {
+                ID = visitor.ID,
+                FIO = visitor.FIO,
+                Discount = visitor.Discount,
+                PhoneNumber = visitor.PhoneNumber,
+                idList = list,
+                CountVisit = countVisit
+            };
+            return View("Details",temp);
+        }
+
+        private int GetCountVisit(List<Visits> list, Visitors visitor)
+        {
+            int countVisit = 0;
+            foreach (var item in list)
+            {
+                if (item.Visitor == visitor)
+                {
+                    countVisit++;
+                }
+            }
+            return countVisit;
+        }
+
         // GET: Visitors/Create
         public IActionResult Create()
         {

@@ -15,6 +15,7 @@ namespace WebApplication4.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Count = table.Column<int>(nullable: false),
                     Photo = table.Column<byte[]>(nullable: true),
                     description = table.Column<string>(nullable: true),
                     name = table.Column<string>(nullable: true),
@@ -32,11 +33,31 @@ namespace WebApplication4.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Discount = table.Column<int>(nullable: false),
+                    FIO = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visitor", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ServiceViewModel",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ServiceID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServiceViewModel", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_ServiceViewModel_Service_ServiceID",
+                        column: x => x.ServiceID,
+                        principalTable: "Service",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,8 +68,8 @@ namespace WebApplication4.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Date = table.Column<DateTime>(nullable: false),
                     Master = table.Column<string>(nullable: true),
-                    ServiceID = table.Column<int>(nullable: true),
-                    VisitorID = table.Column<int>(nullable: true)
+                    ServiceID = table.Column<int>(nullable: false),
+                    VisitorID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -58,14 +79,19 @@ namespace WebApplication4.Migrations
                         column: x => x.ServiceID,
                         principalTable: "Service",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Visit_Visitor_VisitorID",
                         column: x => x.VisitorID,
                         principalTable: "Visitor",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServiceViewModel_ServiceID",
+                table: "ServiceViewModel",
+                column: "ServiceID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visit_ServiceID",
@@ -80,6 +106,9 @@ namespace WebApplication4.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ServiceViewModel");
+
             migrationBuilder.DropTable(
                 name: "Visit");
 

@@ -8,8 +8,8 @@ using WebApplication4.Data;
 namespace WebApplication4.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170930071126_CaskadeDel")]
-    partial class CaskadeDel
+    [Migration("20171009201520_CreateTables")]
+    partial class CreateTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,6 +21,8 @@ namespace WebApplication4.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Count");
 
                     b.Property<byte[]>("Photo");
 
@@ -55,6 +57,8 @@ namespace WebApplication4.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Discount");
+
+                    b.Property<string>("FIO");
 
                     b.Property<int>("PhoneNumber");
 
