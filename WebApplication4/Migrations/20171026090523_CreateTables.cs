@@ -10,6 +10,39 @@ namespace WebApplication4.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Menu",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Category = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Photo = table.Column<byte[]>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    Weight = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Menu", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Order",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Date = table.Column<DateTime>(nullable: false),
+                    FIO = table.Column<string>(nullable: true),
+                    TableNumber = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Order", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Service",
                 columns: table => new
                 {
@@ -42,20 +75,29 @@ namespace WebApplication4.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServiceViewModel",
+                name: "OrderContent",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ServiceID = table.Column<int>(nullable: true)
+                    Count = table.Column<int>(nullable: false),
+                    DishID = table.Column<int>(nullable: true),
+                    OrderID = table.Column<int>(nullable: true),
+                    Value = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServiceViewModel", x => x.ID);
+                    table.PrimaryKey("PK_OrderContent", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_ServiceViewModel_Service_ServiceID",
-                        column: x => x.ServiceID,
-                        principalTable: "Service",
+                        name: "FK_OrderContent_Menu_DishID",
+                        column: x => x.DishID,
+                        principalTable: "Menu",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_OrderContent_Order_OrderID",
+                        column: x => x.OrderID,
+                        principalTable: "Order",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -89,9 +131,14 @@ namespace WebApplication4.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ServiceViewModel_ServiceID",
-                table: "ServiceViewModel",
-                column: "ServiceID");
+                name: "IX_OrderContent_DishID",
+                table: "OrderContent",
+                column: "DishID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderContent_OrderID",
+                table: "OrderContent",
+                column: "OrderID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visit_ServiceID",
@@ -107,10 +154,16 @@ namespace WebApplication4.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ServiceViewModel");
+                name: "OrderContent");
 
             migrationBuilder.DropTable(
                 name: "Visit");
+
+            migrationBuilder.DropTable(
+                name: "Menu");
+
+            migrationBuilder.DropTable(
+                name: "Order");
 
             migrationBuilder.DropTable(
                 name: "Service");

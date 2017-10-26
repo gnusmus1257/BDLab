@@ -19,6 +19,9 @@ namespace WebApplication4.Data
         public DbSet<WebApplication4.Models.Service> Service { get; set; }
         public DbSet<WebApplication4.Models.Visitors> Visitor { get; set; }
         public DbSet<WebApplication4.Models.Visits> Visit { get; set; }
-        public DbSet<WebApplication4.Models.TableViewModel.ServiceViewModel> ServiceViewModel { get; set; }
+
+        public DbSet<WebApplication4.Models.Menu> Menu { get; set; }
+        public DbSet<WebApplication4.Models.Order> Order { get; set; }
+        public DbSet<WebApplication4.Models.OrderContent> OrderContent { get; set; }
     }
 }

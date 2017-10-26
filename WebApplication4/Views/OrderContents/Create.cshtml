@@ -1,0 +1,66 @@
+@model WebApplication4.Models.OrderContentViewModel.OrderContentCreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>OrderContent</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Count" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Count" class="form-control" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Value" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-xs-5 selectContainer">
+            <select name="Order" class="form-control">
+                <option selected="selected">Services</option>
+                @foreach (var item in Model.Orders)
+            {
+                    <option>
+                        @item.ID
+                    </option>
+                }
+            </select>
+        </div>
+   </div>
+    <div class="form-group">
+        <div class="col-xs-5 selectContainer">
+            <select name="Dish" class="form-control">
+                <option selected="selected">Visitors</option>
+                @foreach (var item in Model.Menus)
+            {
+                    <option class="list-group-item">
+                        @item.Name
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

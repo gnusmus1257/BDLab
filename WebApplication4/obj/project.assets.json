@@ -10950,7 +10950,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\artem\\.nuget\\packages\\": {}
+    "C:\\Users\\Inna\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -10958,14 +10958,14 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\artem\\Desktop\\BDLab-Artem\\WebApplication4\\WebApplication4.csproj",
+      "projectUniqueName": "C:\\Users\\Inna\\Documents\\Visual Studio 2017\\Projects\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
       "projectName": "WebApplication4",
-      "projectPath": "C:\\Users\\artem\\Desktop\\BDLab-Artem\\WebApplication4\\WebApplication4.csproj",
-      "packagesPath": "C:\\Users\\artem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\artem\\Desktop\\BDLab-Artem\\WebApplication4\\obj\\",
+      "projectPath": "C:\\Users\\Inna\\Documents\\Visual Studio 2017\\Projects\\WebApplication4\\WebApplication4\\WebApplication4.csproj",
+      "packagesPath": "C:\\Users\\Inna\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Inna\\Documents\\Visual Studio 2017\\Projects\\WebApplication4\\WebApplication4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\artem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Inna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
