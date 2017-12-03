@@ -1,0 +1,14 @@
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.csprojResolveAssemblyReference.cache
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.Form1.resources
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.Properties.Resources.resources
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.csproj.GenerateResource.Cache
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.csproj.CoreCompileInputs.cache
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\BDLab26.exe.config
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\BDLab26.exe
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\BDLab26.pdb
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\EntityFramework.dll
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\EntityFramework.xml
+C:\Users\artem\source\repos\BDLab26\BDLab26\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.exe
+C:\Users\artem\source\repos\BDLab26\BDLab26\obj\Debug\BDLab26.pdb
