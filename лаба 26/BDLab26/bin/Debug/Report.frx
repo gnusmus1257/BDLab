@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="12/04/2017 11:49:48" ReportInfo.Modified="12/04/2017 13:08:23" ReportInfo.CreatorVersion="2017.4.7.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/04/2017 11:49:48" ReportInfo.Modified="12/05/2017 08:11:44" ReportInfo.CreatorVersion="2017.4.7.0">
   <Dictionary>
     <Parameter Name="ID" DataType="System.String"/>
     <Parameter Name="Service" DataType="System.String"/>
@@ -15,7 +15,7 @@
       <TextObject Name="Text2" Left="160.65" Top="9.45" Width="56.7" Height="18.9" Text="Чек №&#13;&#10;"/>
       <TextObject Name="ID" Left="311.85" Top="9.45" Width="94.5" Height="18.9" Text="[ID]"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="141.75">
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="321.3">
       <TextObject Name="Text4" Left="160.65" Top="18.9" Width="66.15" Height="18.9" Text="Услуга:"/>
       <TextObject Name="Service" Left="311.85" Top="18.9" Width="94.5" Height="18.9" Text="[Service]"/>
       <TextObject Name="Text6" Left="160.65" Top="47.25" Width="66.15" Height="18.9" Text="Цена"/>
@@ -24,7 +24,49 @@
       <TextObject Name="Visitor" Left="311.85" Top="75.6" Width="94.5" Height="18.9" Text="[Visitor]"/>
       <TextObject Name="Text10" Left="160.65" Top="103.95" Width="94.5" Height="18.9" Text="Дата"/>
       <TextObject Name="Date" Left="311.85" Top="103.95" Width="94.5" Height="18.9" Text="[Date]"/>
+      <TableObject Name="Table" Left="160.65" Top="170.1" Width="330.75" Height="94.5">
+        <TableColumn Name="Column1"/>
+        <TableColumn Name="Column2"/>
+        <TableColumn Name="Column3"/>
+        <TableColumn Name="Column4"/>
+        <TableColumn Name="Column5"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1"/>
+          <TableCell Name="Cell2"/>
+          <TableCell Name="Cell3"/>
+          <TableCell Name="Cell4"/>
+          <TableCell Name="Cell5"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell6"/>
+          <TableCell Name="Cell7"/>
+          <TableCell Name="Cell8"/>
+          <TableCell Name="Cell9"/>
+          <TableCell Name="Cell10"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell11"/>
+          <TableCell Name="Cell12"/>
+          <TableCell Name="Cell13"/>
+          <TableCell Name="Cell14"/>
+          <TableCell Name="Cell15"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell16"/>
+          <TableCell Name="Cell17"/>
+          <TableCell Name="Cell18"/>
+          <TableCell Name="Cell19"/>
+          <TableCell Name="Cell20"/>
+        </TableRow>
+        <TableRow Name="Row5">
+          <TableCell Name="Cell21"/>
+          <TableCell Name="Cell22"/>
+          <TableCell Name="Cell23"/>
+          <TableCell Name="Cell24"/>
+          <TableCell Name="Cell25"/>
+        </TableRow>
+      </TableObject>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="229.35" Width="718.2" Height="18.9"/>
+    <PageFooterBand Name="PageFooter1" Top="408.9" Width="718.2" Height="18.9"/>
   </ReportPage>
 </Report>

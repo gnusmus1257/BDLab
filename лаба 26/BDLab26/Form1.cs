@@ -361,26 +361,53 @@ namespace BDLab26
         {
             //try
             //{
-                var visit = new Visits()
-                {
-                    ID = Convert.ToInt32(dataGridView3.SelectedRows[0].Cells["ID"].Value),
-                    Date = Convert.ToDateTime(dataGridView3.SelectedRows[0].Cells["Date"].Value),
-                    Master = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Master"].Value),
-                    Service = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Service"].Value),
-                    Visitor = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Visitor"].Value)
-                };
-                var tempService = _context.Service.First(x => x.name == visit.Service);
-                var tempVisitor = _context.Visitor.First(x => x.FIO == visit.Visitor);
+                //var visit = new Visits()
+                //{
+                //    ID = Convert.ToInt32(dataGridView3.SelectedRows[0].Cells["ID"].Value),
+                //    Date = Convert.ToDateTime(dataGridView3.SelectedRows[0].Cells["Date"].Value),
+                //    Master = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Master"].Value),
+                //    Service = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Service"].Value),
+                //    Visitor = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Visitor"].Value)
+                //};
+                //var tempService = _context.Service.First(x => x.name == visit.Service);
+                //var tempVisitor = _context.Visitor.First(x => x.FIO == visit.Visitor);
 
                 report2.Load( @"C:\Users\User\Documents\BDLab\лаба 26\BDLab26\bin\Debug\Report.frx"); // загружаем файл отчета
                 report2.Preview = previewControl1;
-                (report2.FindObject("ID") as TextObject).Text = visit.ID.ToString();
-            string dateNow = visit.Date.ToShortTimeString() + ":00 / " + visit.Date.ToShortDateString();
+            //    (report2.FindObject("ID") as TextObject).Text = visit.ID.ToString();
+            //string dateNow = visit.Date.ToShortTimeString() + ":00 / " + visit.Date.ToShortDateString();
 
-                (report2.FindObject("Date") as TextObject).Text = dateNow;
-                (report2.FindObject("Visitor") as TextObject).Text = visit.Visitor;
-                (report2.FindObject("Service") as TextObject).Text = visit.Service;
-                (report2.FindObject("Price") as TextObject).Text = tempService.value.ToString();
+            //    (report2.FindObject("Date") as TextObject).Text = dateNow;
+            //    (report2.FindObject("Visitor") as TextObject).Text = visit.Visitor;
+            //    (report2.FindObject("Service") as TextObject).Text = visit.Service;
+            //    (report2.FindObject("Price") as TextObject).Text = tempService.value.ToString();
+
+            FastReport.Table.TableBase Mytbl = (FastReport.Table.TableBase)this.report2.Report.FindObject("Table");
+            Mytbl.RowCount = this.dataGridView3.RowCount+1; // синхронизируем кол-во строк таблиц
+            Mytbl.ColumnCount = this.dataGridView3.ColumnCount + 1;// синхронизируем кол-во колонок таблиц
+            for (int i = 0; i < dataGridView3.Columns.Count; i++)
+            {
+                Mytbl[i, 0].Text = dataGridView3.Columns[i].HeaderText.ToString();//Convert.ToString(this.dgvViewTable[i, 0].Value); // переносим данные по ячейкам
+                Mytbl[i, 0].Border.Lines = BorderLines.All; // границы ячеек таблицы отчета
+                //dataGridView1.Columns[i].HeaderText.ToString() + "\t:\t" + dataGridView1.Rows[idColumn].Cells[i].Value.ToString() + " ;\n";
+            }
+            Mytbl[dataGridView3.Columns.Count, 0].Text = "Price";//Convert.ToString(this.dgvViewTable[i, 0].Value); // переносим данные по ячейкам
+            Mytbl[dataGridView3.Columns.Count, 0].Border.Lines = BorderLines.All; // границы ячеек таблицы отчета
+            for (short RowShag = 0; RowShag != this.dataGridView3.RowCount; RowShag++)
+            {
+                for (short ColShag = 0; ColShag != this.dataGridView3.ColumnCount-1; ColShag++)
+                {
+                    Mytbl[ColShag, RowShag+1].Text = Convert.ToString(this.dataGridView3[ColShag, RowShag].Value); // переносим данные по ячейкам
+                    Mytbl[ColShag, RowShag+1].Border.Lines = BorderLines.All; // границы ячеек таблицы отчета
+                }
+                var master = Convert.ToString(this.dataGridView3["Master", RowShag].Value);
+                var serviceName = Convert.ToString(this.dataGridView3["Service", RowShag].Value);
+                var tempService = _context.Service.First(x => x.name == serviceName);
+                Mytbl[this.dataGridView3.ColumnCount-1, RowShag + 1].Text = Convert.ToString(master); // переносим данные по ячейкам
+                Mytbl[this.dataGridView3.ColumnCount-1, RowShag + 1].Border.Lines = BorderLines.All; // границы ячеек таблицы отчета
+                Mytbl[this.dataGridView3.ColumnCount, RowShag +1].Text = Convert.ToString(tempService.value); // переносим данные по ячейкам
+                Mytbl[this.dataGridView3.ColumnCount, RowShag +1].Border.Lines = BorderLines.All; // границы ячеек таблицы отчета
+            }
             //}
             //catch (Exception)
             //{
