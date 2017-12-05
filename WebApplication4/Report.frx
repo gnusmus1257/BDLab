@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/04/2017 11:49:48" ReportInfo.Modified="12/04/2017 11:57:41" ReportInfo.CreatorVersion="2017.4.7.0">
+  <Dictionary>
+    <Parameter Name="ID" DataType="System.Int32"/>
+    <Parameter Name="Service" DataType="System.String"/>
+    <Parameter Name="Price" DataType="System.Int32"/>
+    <Parameter Name="Visitor" DataType="System.String"/>
+    <Parameter Name="Date" DataType="System.DateTime"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Left="226.8" Top="9.45" Width="113.4" Height="18.9" Text="Оказание услуг&#13;&#10;"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Left="160.65" Top="9.45" Width="56.7" Height="18.9" Text="Чек №&#13;&#10;"/>
+      <TextObject Name="Text3" Left="311.85" Top="9.45" Width="94.5" Height="18.9" Text="[ID]"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="141.75">
+      <TextObject Name="Text4" Left="160.65" Top="18.9" Width="66.15" Height="18.9" Text="Услуга:"/>
+      <TextObject Name="Text5" Left="311.85" Top="18.9" Width="94.5" Height="18.9" Text="[Service]"/>
+      <TextObject Name="Text6" Left="160.65" Top="47.25" Width="66.15" Height="18.9" Text="Цена"/>
+      <TextObject Name="Text7" Left="311.85" Top="47.25" Width="94.5" Height="18.9" Text="[Price]"/>
+      <TextObject Name="Text8" Left="160.65" Top="75.6" Width="85.05" Height="18.9" Text="Покупатель"/>
+      <TextObject Name="Text9" Left="311.85" Top="75.6" Width="94.5" Height="18.9" Text="[Visitor]"/>
+      <TextObject Name="Text10" Left="160.65" Top="103.95" Width="94.5" Height="18.9" Text="Дата"/>
+      <TextObject Name="Text11" Left="311.85" Top="103.95" Width="94.5" Height="18.9" Text="[Date]"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="229.35" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

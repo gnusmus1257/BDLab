@@ -120,4 +120,40 @@
   <metadata name="pageSetupDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="report2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>169, 17</value>
+  </metadata>
+  <data name="report2.ReportResourceString" xml:space="preserve">
+    <value>﻿&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Report ScriptLanguage="CSharp" ReportInfo.Created="12/04/2017 11:49:48" ReportInfo.Modified="12/04/2017 13:08:27" ReportInfo.CreatorVersion="2017.4.7.0"&gt;
+  &lt;Dictionary&gt;
+    &lt;Parameter Name="ID" DataType="System.String"/&gt;
+    &lt;Parameter Name="Service" DataType="System.String"/&gt;
+    &lt;Parameter Name="Price" DataType="System.String"/&gt;
+    &lt;Parameter Name="Visitor" DataType="System.String"/&gt;
+    &lt;Parameter Name="Date" DataType="System.String"/&gt;
+  &lt;/Dictionary&gt;
+  &lt;ReportPage Name="Page1"&gt;
+    &lt;ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"&gt;
+      &lt;TextObject Name="Text1" Left="226.8" Top="9.45" Width="113.4" Height="18.9" Text="Оказание услуг&amp;#13;&amp;#10;"/&gt;
+    &lt;/ReportTitleBand&gt;
+    &lt;PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="37.8"&gt;
+      &lt;TextObject Name="Text2" Left="160.65" Top="9.45" Width="56.7" Height="18.9" Text="Чек №&amp;#13;&amp;#10;"/&gt;
+      &lt;TextObject Name="ID" Left="311.85" Top="9.45" Width="94.5" Height="18.9" Text="[ID]"/&gt;
+    &lt;/PageHeaderBand&gt;
+    &lt;DataBand Name="Data1" Top="83.6" Width="718.2" Height="141.75"&gt;
+      &lt;TextObject Name="Text4" Left="160.65" Top="18.9" Width="66.15" Height="18.9" Text="Услуга:"/&gt;
+      &lt;TextObject Name="Service" Left="311.85" Top="18.9" Width="94.5" Height="18.9" Text="[Service]"/&gt;
+      &lt;TextObject Name="Text6" Left="160.65" Top="47.25" Width="66.15" Height="18.9" Text="Цена"/&gt;
+      &lt;TextObject Name="Price" Left="311.85" Top="47.25" Width="94.5" Height="18.9" Text="[Price]"/&gt;
+      &lt;TextObject Name="Text8" Left="160.65" Top="75.6" Width="85.05" Height="18.9" Text="Покупатель"/&gt;
+      &lt;TextObject Name="Visitor" Left="311.85" Top="75.6" Width="94.5" Height="18.9" Text="[Visitor]"/&gt;
+      &lt;TextObject Name="Text10" Left="160.65" Top="103.95" Width="94.5" Height="18.9" Text="Дата"/&gt;
+      &lt;TextObject Name="Date" Left="311.85" Top="103.95" Width="94.5" Height="18.9" Text="[Date]"/&gt;
+    &lt;/DataBand&gt;
+    &lt;PageFooterBand Name="PageFooter1" Top="229.35" Width="718.2" Height="18.9"/&gt;
+  &lt;/ReportPage&gt;
+&lt;/Report&gt;
+</value>
+  </data>
 </root>

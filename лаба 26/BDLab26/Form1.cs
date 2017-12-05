@@ -1,11 +1,9 @@
-﻿using System;
+﻿using FastReport;
+using FastReport.Preview;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BDLab26
@@ -353,5 +351,69 @@ namespace BDLab26
             }
             MessageBox.Show(count.ToString());
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+                var visit = new Visits()
+                {
+                    ID = Convert.ToInt32(dataGridView3.SelectedRows[0].Cells["ID"].Value),
+                    Date = Convert.ToDateTime(dataGridView3.SelectedRows[0].Cells["Date"].Value),
+                    Master = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Master"].Value),
+                    Service = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Service"].Value),
+                    Visitor = Convert.ToString(dataGridView3.SelectedRows[0].Cells["Visitor"].Value)
+                };
+                var tempService = _context.Service.First(x => x.name == visit.Service);
+                var tempVisitor = _context.Visitor.First(x => x.FIO == visit.Visitor);
+
+                report2.Load( @"C:\Users\User\Documents\BDLab\лаба 26\BDLab26\bin\Debug\Report.frx"); // загружаем файл отчета
+                report2.Preview = previewControl1;
+                (report2.FindObject("ID") as TextObject).Text = visit.ID.ToString();
+            string dateNow = visit.Date.ToShortTimeString() + ":00 / " + visit.Date.ToShortDateString();
+
+                (report2.FindObject("Date") as TextObject).Text = dateNow;
+                (report2.FindObject("Visitor") as TextObject).Text = visit.Visitor;
+                (report2.FindObject("Service") as TextObject).Text = visit.Service;
+                (report2.FindObject("Price") as TextObject).Text = tempService.value.ToString();
+            //}
+            //catch (Exception)
+            //{
+
+            //    MessageBox.Show(@"Error");
+            //}
+
+            //(название магазина, дата, наименование товара, цена, количество, общая стоимость покупки).
+            //report1.Load(System.Windows.Forms.Application.StartupPath + "\\Report.frx"); // загружаем файл отчета
+            //report1.Preview = previewControl1;
+            //(report1.FindObject("ID") as TextObject).Text = vis";
+            //string dateNow = DateTime.Now.ToShortTimeString() + ":00 / " + DateTime.Now.ToShortDateString();
+
+            //(report1.FindObject("DateNow") as TextObject).Text = dateNow;
+            //(report1.FindObject("SumPocupoc") as TextObject).Text = (100).ToString();
+            //(report1.FindObject("CountTovars") as TextObject).Text = (100).ToString();
+
+            ////выводим данные из datagrid 
+            //FastReport.Table.TableBase Mytbl = (FastReport.Table.TableBase)this.report1.Report.FindObject("TableTovars");
+            //Mytbl.RowCount = this.dataGridView1.RowCount; // синхронизируем кол-во строк таблиц
+            //Mytbl.ColumnCount = this.dataGridView1.ColumnCount; // синхронизируем кол-во колонок таблиц
+            //for (short RowShag = 0; RowShag != this.dataGridView1.RowCount - 1; RowShag++)
+            //{
+            //    for (short ColShag = 0; ColShag != this.dataGridView1.ColumnCount; ColShag++)
+            //    {
+            //        Mytbl[ColShag, RowShag].Text = Convert.ToString(this.dataGridView1[ColShag, RowShag].Value); // переносим данные по ячейкам
+            //        Mytbl[ColShag, RowShag].Border.Lines = BorderLines.All; // границы ячеек таблицы отчета
+            //    }
+            //}
+
+            report2.Show();// отображаем отчет
+        }
+
+
     }
 }

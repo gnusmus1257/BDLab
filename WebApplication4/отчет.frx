@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/04/2017 10:49:51" ReportInfo.Modified="12/04/2017 11:12:39" ReportInfo.CreatorVersion="2017.4.7.0">
+  <Dictionary>
+    <TableDataSource Name="Services" ReferenceName="dbConnectionDataSet1.Services" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="name" DataType="System.String"/>
+      <Column Name="description" DataType="System.String"/>
+      <Column Name="value" DataType="System.Int32"/>
+      <Column Name="Photo" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Count" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Visitors" ReferenceName="dbConnectionDataSet1.Visitors" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="FIO" DataType="System.String"/>
+      <Column Name="PhoneNumber" DataType="System.Int32"/>
+      <Column Name="Discount" DataType="System.Int32"/>
+      <Column Name="Count" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Visits" ReferenceName="dbConnectionDataSet1.Visits" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="Visitor" DataType="System.String"/>
+      <Column Name="Date" DataType="System.DateTime"/>
+      <Column Name="Service" DataType="System.String"/>
+      <Column Name="Master" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text9" Left="113.4" Top="9.45" Width="132.3" Height="18.9" Text="Оказание услуг"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text1" Left="113.4" Width="56.7" Height="18.9" Text="Чек №"/>
+      <TextObject Name="Text2" Left="207.9" Width="94.5" Height="18.9" Text="[Visits.ID]"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="103.95" DataSource="Visits">
+      <TextObject Name="Text3" Left="47.25" Top="9.45" Width="132.3" Height="18.9" Text="Оказаная услуга"/>
+      <TextObject Name="Text4" Left="207.9" Top="9.45" Width="94.5" Height="18.9" Text="[Visits.Service]"/>
+      <TextObject Name="Text5" Left="47.25" Top="37.8" Width="122.85" Height="18.9" Text="ФИО посетителя"/>
+      <TextObject Name="Text6" Left="207.9" Top="37.8" Width="94.5" Height="18.9" Text="[Visits.Visitor]"/>
+      <TextObject Name="Text7" Left="47.25" Top="66.15" Width="94.5" Height="18.9" Text="Мастер"/>
+      <TextObject Name="Text8" Left="207.9" Top="66.15" Width="94.5" Height="18.9" Text="[Visits.Master]"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="182.1" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

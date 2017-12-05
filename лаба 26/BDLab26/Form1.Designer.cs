@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -40,6 +41,7 @@
             this.SName = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.VDiscount = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,6 +51,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
+            this.Avg = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.MasterForFind = new System.Windows.Forms.ComboBox();
+            this.FindVisitor = new System.Windows.Forms.Button();
+            this.ServiceMoreThenThis = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.VDate = new System.Windows.Forms.DateTimePicker();
             this.VMaster = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,17 +70,10 @@
             this.VService = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.FindVisitor = new System.Windows.Forms.Button();
-            this.ServiceMoreThenThis = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.MasterForFind = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.Avg = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
+            this.previewControl1 = new FastReport.Preview.PreviewControl();
+            this.report2 = new FastReport.Report();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -79,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.report2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -94,6 +101,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -115,10 +123,11 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(983, 309);
+            this.tabPage1.Size = new System.Drawing.Size(983, 361);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Service";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label3
             // 
@@ -192,10 +201,20 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(983, 340);
+            this.tabPage2.Size = new System.Drawing.Size(983, 361);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Visitors";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(9, 231);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(173, 23);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Find Visitor with Max Discount";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // label6
             // 
@@ -291,6 +310,98 @@
             this.tabPage3.Text = "Visits";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(8, 325);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 20;
+            this.button7.Text = "Visits count";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // Avg
+            // 
+            this.Avg.Location = new System.Drawing.Point(100, 288);
+            this.Avg.Name = "Avg";
+            this.Avg.Size = new System.Drawing.Size(100, 20);
+            this.Avg.TabIndex = 19;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(232, 286);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(223, 23);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Masters with average price more then this";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 291);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 13);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Average";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(223, 250);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(148, 23);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "ServiceByThisMasterToday";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 255);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(39, 13);
+            this.label11.TabIndex = 15;
+            this.label11.Text = "Master";
+            // 
+            // MasterForFind
+            // 
+            this.MasterForFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MasterForFind.FormattingEnabled = true;
+            this.MasterForFind.Location = new System.Drawing.Point(67, 252);
+            this.MasterForFind.Name = "MasterForFind";
+            this.MasterForFind.Size = new System.Drawing.Size(121, 21);
+            this.MasterForFind.TabIndex = 14;
+            // 
+            // FindVisitor
+            // 
+            this.FindVisitor.Location = new System.Drawing.Point(266, 218);
+            this.FindVisitor.Name = "FindVisitor";
+            this.FindVisitor.Size = new System.Drawing.Size(75, 23);
+            this.FindVisitor.TabIndex = 13;
+            this.FindVisitor.Text = "Find";
+            this.FindVisitor.UseVisualStyleBackColor = true;
+            this.FindVisitor.Click += new System.EventHandler(this.FindVisitor_Click);
+            // 
+            // ServiceMoreThenThis
+            // 
+            this.ServiceMoreThenThis.Location = new System.Drawing.Point(145, 220);
+            this.ServiceMoreThenThis.Name = "ServiceMoreThenThis";
+            this.ServiceMoreThenThis.Size = new System.Drawing.Size(100, 20);
+            this.ServiceMoreThenThis.TabIndex = 12;
+            this.ServiceMoreThenThis.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 223);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(112, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Service more then this";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
             // VDate
             // 
             this.VDate.Location = new System.Drawing.Point(608, 183);
@@ -369,107 +480,42 @@
             this.dataGridView3.Size = new System.Drawing.Size(877, 171);
             this.dataGridView3.TabIndex = 0;
             // 
-            // FindVisitor
+            // tabPage4
             // 
-            this.FindVisitor.Location = new System.Drawing.Point(266, 218);
-            this.FindVisitor.Name = "FindVisitor";
-            this.FindVisitor.Size = new System.Drawing.Size(75, 23);
-            this.FindVisitor.TabIndex = 13;
-            this.FindVisitor.Text = "Find";
-            this.FindVisitor.UseVisualStyleBackColor = true;
-            this.FindVisitor.Click += new System.EventHandler(this.FindVisitor_Click);
+            this.tabPage4.Controls.Add(this.button8);
+            this.tabPage4.Controls.Add(this.previewControl1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(983, 361);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Report";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // ServiceMoreThenThis
+            // button8
             // 
-            this.ServiceMoreThenThis.Location = new System.Drawing.Point(145, 220);
-            this.ServiceMoreThenThis.Name = "ServiceMoreThenThis";
-            this.ServiceMoreThenThis.Size = new System.Drawing.Size(100, 20);
-            this.ServiceMoreThenThis.TabIndex = 12;
-            this.ServiceMoreThenThis.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.button8.Location = new System.Drawing.Point(3, 309);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 23);
+            this.button8.TabIndex = 24;
+            this.button8.Text = "Report";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // label10
+            // previewControl1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 223);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Service more then this";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.previewControl1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.previewControl1.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.previewControl1.Location = new System.Drawing.Point(3, 3);
+            this.previewControl1.Name = "previewControl1";
+            this.previewControl1.PageOffset = new System.Drawing.Point(10, 10);
+            this.previewControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.previewControl1.Size = new System.Drawing.Size(977, 286);
+            this.previewControl1.TabIndex = 23;
             // 
-            // button4
+            // report2
             // 
-            this.button4.Location = new System.Drawing.Point(9, 231);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(173, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Find Visitor with Max Discount";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
-            // 
-            // MasterForFind
-            // 
-            this.MasterForFind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MasterForFind.FormattingEnabled = true;
-            this.MasterForFind.Location = new System.Drawing.Point(67, 252);
-            this.MasterForFind.Name = "MasterForFind";
-            this.MasterForFind.Size = new System.Drawing.Size(121, 21);
-            this.MasterForFind.TabIndex = 14;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 255);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(39, 13);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Master";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(223, 250);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(148, 23);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "ServiceByThisMasterToday";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 291);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 13);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Average";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(232, 286);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(223, 23);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Masters with average price more then this";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // Avg
-            // 
-            this.Avg.Location = new System.Drawing.Point(100, 288);
-            this.Avg.Name = "Avg";
-            this.Avg.Size = new System.Drawing.Size(100, 20);
-            this.Avg.TabIndex = 19;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(8, 325);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 20;
-            this.button7.Text = "Visits count";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.report2.NeedRefresh = false;
+            this.report2.ReportResourceString = resources.GetString("report2.ReportResourceString");
             // 
             // Form1
             // 
@@ -493,6 +539,8 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.report2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -540,6 +588,10 @@
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox Avg;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button button8;
+        public FastReport.Preview.PreviewControl previewControl1;
+        private FastReport.Report report2;
     }
 }
 

@@ -5,7 +5,7 @@ namespace BDLab26
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
-            :base("DbConnection")
+            :base("BeuatySalonBD")
         { }
         public DbSet<Service> Service { get; set; }
         public DbSet<Visitors> Visitor { get; set; }
